@@ -98,7 +98,7 @@ email.addEventListener("input", (event) => {
     // eslint-disable-next-line spaced-comment
     //check
 
-    if (password.validity.tooShort) {
+    if (!password.validity.valid) {
         passwordError.textContent = "Your password is too short";
         passwordError.className = "error active";
     } else {
@@ -135,5 +135,8 @@ email.addEventListener("input", (event) => {
         alert("High five");
     } else {
         event.preventDefault();
+        checkZIP();
+        checkPassword();
+        showError();
     }
   })
