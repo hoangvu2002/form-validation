@@ -33,10 +33,12 @@
             <div>
                 <label for="password">Password:</label>
                 <input type="password" id="password" required minlength="8">
+                <span class="error" aria-live="polite"></span>
             </div>
             <div>
                 <label for="confirmPassword">Confirm Password:</label>
-                <input type="password" id="confirmPassword" required>
+                <input type="password" id="confirmPassword" required minlength="8">
+                <span class="error" aria-live="polite"></span>
             </div>
             <div>
                 <button type="submit">Submit</button>

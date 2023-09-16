@@ -89,7 +89,38 @@ email.addEventListener("input", (event) => {
     }
   };
 
+  function checkPassword() {
+    const password = document.getElementById("password");
+    const confirmPassword = document.getElementById("confirmPassword");
+    const passwordError = document.querySelector("#password + span.error");
+    const confirmPasswordError = document.querySelector("#confirmPassword + span.error")
+
+    // eslint-disable-next-line spaced-comment
+    //check
+
+    if (password.validity.tooShort) {
+        passwordError.textContent = "Your password is too short";
+        passwordError.className = "error active";
+    } else {
+        passwordError.textContent = "";
+        passwordError.className = "error";
+    }
+
+    if (confirmPassword.value !== password.value) {
+        confirmPasswordError.textContent = "Your confirm password doesn't match";
+        confirmPasswordError.className = "error active";
+        confirmPassword.setCustomValidity("Password doesn't match") // I add this line because it keeps the input invalid, although I don't know why I cant do it using valid = false;
+    } else {
+        confirmPasswordError.textContent = "";
+        confirmPasswordError.className = "error";
+        confirmPassword.setCustomValidity("");
+    }
+  }
+
   window.onload = () => {
     document.getElementById("Country").onchange = checkZIP;
     document.getElementById("ZIP").oninput = checkZIP;
+    document.getElementById("password").oninput = checkPassword;
+    document.getElementById("confirmPassword").oninput = checkPassword;
   };
+
