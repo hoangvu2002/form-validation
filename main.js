@@ -124,3 +124,16 @@ email.addEventListener("input", (event) => {
     document.getElementById("confirmPassword").oninput = checkPassword;
   };
 
+  form.addEventListener("submit", (event) => {
+    // eslint-disable-next-line no-shadow
+    const email = document.getElementById("email");
+    const zipcode = document.getElementById("ZIP");
+    const password = document.getElementById("password");
+    const confirmPassword = document.getElementById("confirmPassword");
+
+    if (email.validity.valid && zipcode.validity.valid && password.validity.valid && confirmPassword.validity.valid) {
+        alert("High five");
+    } else {
+        event.preventDefault();
+    }
+  })
