@@ -27,7 +27,8 @@
             </div>
             <div>
                 <label for="ZIP">ZIP : </label>
-                <input type="text" id="ZIP" />
+                <input type="text" id="ZIP" required/>
+                <span class="error" aria-live="polite"></span>
             </div>
             <div>
                 <label for="password">Password:</label>
@@ -36,6 +37,9 @@
             <div>
                 <label for="confirmPassword">Confirm Password:</label>
                 <input type="password" id="confirmPassword" required>
+            </div>
+            <div>
+                <button type="submit">Submit</button>
             </div>
         </fieldset>
     </form>
